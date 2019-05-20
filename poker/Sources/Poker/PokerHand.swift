@@ -25,10 +25,6 @@ class PokerHand {
 
     guard validate() else { return nil }
   }
-
-  init(cards: [Card]) {
-    self.cards = cards
-  }
 }
 
 extension PokerHand: Collection {

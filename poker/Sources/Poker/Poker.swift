@@ -14,7 +14,7 @@ class Poker {
 class BestHand {
   typealias PokerHandLogic = (PokerHand) -> ([Card])
 
-  static let logics: [PokerHandLogic] = [royalFlush, straightFlush, fourOfAKind, FullHouse, flush, straight, threeOfAKind, twoPair, pair, highCard]
+  static let logics: [PokerHandLogic] = [royalFlush, straightFlush, fourOfAKind, fullHouse, flush, straight, threeOfAKind, twoPair, pair, highCard]
 
   static let royalFlush: PokerHandLogic = { hand in
     let cards = straightFlush(hand)
@@ -38,7 +38,7 @@ class BestHand {
     return cards
   }
 
-  static let FullHouse: PokerHandLogic = { hand in
+  static let fullHouse: PokerHandLogic = { hand in
     var cards = grouped(hand)
     guard cards.count == 5 else { return cards }
     if cards[0].rank != cards[2].rank {

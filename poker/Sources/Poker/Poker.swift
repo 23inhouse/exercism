@@ -149,10 +149,16 @@ extension BestHand: Comparable {
 
   static func < (lhs: BestHand, rhs: BestHand) -> Bool {
     // print("\(lhs.hand) < \(rhs.hand) == \(lhs.score) < \(rhs.score) || \(lhs.highCard()) < \(rhs.highCard()) || \(lhs.secondHighCard(rhs)) < \(rhs.secondHighCard(lhs)) || \(lhs.cards.first!.suit.index()) < \(rhs.cards.first!.suit.index())")
+    guard lhs.score != rhs.score else {
+      guard lhs.highCard() != rhs.highCard() else {
+        guard lhs.secondHighCard(rhs) != rhs.secondHighCard(lhs) else {
+          return lhs.cards.first!.suit < rhs.cards.first!.suit
+        }
+        return lhs.secondHighCard(rhs) < rhs.secondHighCard(lhs)
+      }
+      return lhs.highCard() < rhs.highCard()
+    }
     return lhs.score < rhs.score
-      || (lhs.score == rhs.score && lhs.highCard() < rhs.highCard())
-      || (lhs.highCard() == rhs.highCard() && lhs.secondHighCard(rhs) < rhs.secondHighCard(lhs))
-      || (lhs.secondHighCard(rhs) == rhs.secondHighCard(lhs) && lhs.cards.first!.suit < rhs.cards.first!.suit)
   }
 
   func highCard() -> Rank {

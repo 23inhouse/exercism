@@ -1,4 +1,4 @@
 .exercism
 */.gitignore
-README*
+*/README*
 LinuxMain.swift

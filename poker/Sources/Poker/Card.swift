@@ -27,7 +27,7 @@ extension Rank: Comparable {
   }
 
   func index() -> Int {
-    return Int(Rank.ranks.firstIndex(of: self)!)
+    return Rank.ranks.firstIndex(of: self) ?? -1
   }
 }
 
@@ -57,7 +57,7 @@ extension Suit: Comparable {
   }
 
   func index() -> Int {
-    return Int(Suit.order.firstIndex(of: self)!)
+    return Suit.order.firstIndex(of: self) ?? -1
   }
 }
 

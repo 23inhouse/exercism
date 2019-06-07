@@ -109,8 +109,8 @@ class BestHand {
     var cards = [Card]()
     for card in hand {
       for other in hand {
-        if card == other { continue }
-        if cards.contains(card) { continue }
+        guard card != other else { continue }
+        guard !cards.contains(card) else { continue }
 
         if card.rank == other.rank {
           cards.append(card)

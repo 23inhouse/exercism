@@ -54,7 +54,7 @@ class BestHand {
   static let straight: PokerHandLogic = { hand in
     var cards = [Card]()
     for card in hand.sorted().reversed() {
-      if cards.count == 0 || cards.last!.rank.index() == card.rank.index() - 1 {
+      if cards.isEmpty || cards.last!.rank.index() == card.rank.index() - 1 {
         cards.append(card)
       }
       if cards.count == 4 && cards.last!.rank == .five && card.rank == .ace {

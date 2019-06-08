@@ -1,5 +1,5 @@
 // MARK: PokerHand
-class PokerHand {
+struct PokerHand {
   static let numberOfCards = 5
 
   var cards = [Card]()

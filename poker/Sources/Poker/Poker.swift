@@ -1,7 +1,7 @@
 //Solution goes in Sources
 
 // MARK: Poker
-class Poker {
+struct Poker {
   static func bestHand(_ hands: [String]) -> String {
     let pokerHands = hands.map({ PokerHand($0)! })
     guard let best = BestHand.check(pokerHands) else {
@@ -11,7 +11,7 @@ class Poker {
   }
 }
 
-class BestHand {
+struct BestHand {
   typealias PokerHandLogic = (PokerHand) -> ([Card])
 
   static let logics: [PokerHandLogic] = [royalFlush, straightFlush, fourOfAKind, fullHouse, flush, straight, threeOfAKind, twoPair, pair, highCard]

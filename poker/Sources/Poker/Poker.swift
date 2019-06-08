@@ -48,13 +48,7 @@ class BestHand {
   }
 
   static let flush: PokerHandLogic = { hand in
-    var cards = [Card]()
-    for card in hand.sorted() {
-      if cards.count == 0 || cards.last!.suit == card.suit {
-        cards.append(card)
-      }
-    }
-    return cards
+    return hand.sorted().filter { card in card.suit == hand.cards[0].suit }
   }
 
   static let straight: PokerHandLogic = { hand in
